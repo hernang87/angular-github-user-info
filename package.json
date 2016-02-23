@@ -1,0 +1,22 @@
+{
+  "name": "angular-github-user-info",
+  "version": "1.0.0",
+  "description": "AngularJS app example for showing Github user info",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hernang87/angular-github-user-info.git"
+  },
+  "author": "Hernan Garchtrom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hernang87/angular-github-user-info/issues"
+  },
+  "homepage": "https://github.com/hernang87/angular-github-user-info#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
