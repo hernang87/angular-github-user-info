@@ -1,5 +1,6 @@
 // Gulp
 var gulp = require('gulp');
+var connect = require('gulp-connect');
 
 // Sass/CSS stuff
 var sass = require('gulp-sass');
@@ -23,13 +24,15 @@ gulp.task('sass', function (){
 			))
 		.pipe(gulp.dest('./dev/css'))
 		.pipe(minifycss())
-		.pipe(gulp.dest('./prod/css'));
+		.pipe(gulp.dest('./prod/css'))
+		.pipe(connect.reload());
 });
 
 gulp.task('uglify', function(){
 	gulp.src('./dev/js/*.js')
-		.pipe(uglify())
-		.pipe(gulp.dest('./prod/js'));
+		//.pipe(uglify())
+		.pipe(gulp.dest('./prod/js'))
+		.pipe(connect.reload());
 });
 
 gulp.task('stats', function () {
@@ -38,13 +41,22 @@ gulp.task('stats', function () {
 		.pipe(gulp.dest('./prod'));
 });
 
-gulp.task('default', function(){
-	gulp.watch("./dev/sass/**/*.scss", function(event){
-		gulp.run('sass');
-	});
-
-	gulp.watch("./dev/js/**/*.js", function(event){
-		gulp.run('uglify');
-	});
-
+gulp.task('html', function() {
+	gulp.src('./dev/*.html')
+		.pipe(gulp.dest('./prod'))
+		.pipe(connect.reload());
 });
+
+gulp.task('webserver', function() {
+  	connect.server({
+    	livereload: true    	  	
+  	});
+});
+
+gulp.task('watch', function() {
+	gulp.watch("./dev/sass/**/*.scss",['sass']);
+	gulp.watch("./dev/js/**/*.js", ['uglify']);	
+	gulp.watch("./dev/*.html", ['html']);	
+});
+
+gulp.task('default', ['webserver','watch']);

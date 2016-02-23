@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/hernang87/angular-github-user-info#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-connect": "^2.3.1"
   }
 }
