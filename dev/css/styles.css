@@ -6,3 +6,16 @@
   width: 40px;
   height: 40px;
 }
+
+.table td {
+  border-bottom: 1px solid black;
+}
+
+.table .user {
+  vertical-align: top;
+  border-right: 1px solid black;
+}
+
+.table .followers td {
+  border-bottom: 0;
+}

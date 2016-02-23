@@ -9,12 +9,16 @@
 
 			<table class="table">
 				<tr ng-repeat="user in users">
-					<td>
+					<td class="user">
 						<img ng-src="{{user.avatar_url}}" />
 						<span class="username">{{user.login}}</span>
 					</td>
 					<td>
-
+						<table class="followers">
+							<tr ng-repeat="follower in user.followers">
+								<td>{{follower}}</td>
+							</tr>
+						</table>
 					</td>
 				</tr>				
 			</table>
